@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose")
 
-mongoose.connect()
+mongoose.connect("mongodb+srv://ahmedaaamm2:aWU92WlgmcDGAXum@cluster0.yi4p4.mongodb.net/")
+
 
 
 app.get("/users", (req, res)=>{
