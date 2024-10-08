@@ -1,13 +1,17 @@
-const express = require("express");
-const app = express();
+const express = require("express")
+const app = express()
+
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb+srv://ahmedaaamm2:aWU92WlgmcDGAXum@cluster0.yi4p4.mongodb.net/")
+mongoose.connect("mongodb+srv://ahmedaaamm2:lQn8PzwYBNeh9v0S@cluster0.yi4p4.mongodb.net/frems?retryWrites=true&w=majority&appName=Cluster0")
 
 
+const UserModel = require("./models/Users")
 
-app.get("/users", (req, res)=>{
-    res.send("<h1>it is working well now  ... </h1>")
+
+app.get("/users", async (req, res)=>{
+    const users = await UserModel.find();
+    res.json(users) 
 })
 
 app.listen("3001", ()=>{
